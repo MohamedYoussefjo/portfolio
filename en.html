@@ -43,7 +43,7 @@
   <section id="hero" class="hero">
     <div class="hero-content">
       <div class="hero-photo">
-        <img src="assets/photo.jpg" alt="Mohamed Youssef Jouini" />
+        <img src="assets/photo.jpg" alt="Mohamed Youssef Jouini" width="150" height="150" />
       </div>
       <div class="hero-badge">
         <span class="badge-dot"></span>
@@ -101,70 +101,76 @@
       <h2 class="section-title reveal">
         <span class="section-number">01.</span> About Me
       </h2>
-      <div class="about-grid reveal">
-        <div class="about-text">
-          <p>
-            I am an <strong>engineering student</strong> at the
-            <strong>University of Technology of Troyes</strong> (UTT),
-            in the Networks &amp; Telecommunications track with a
-            Systems Security specialization. Holder of a
-            <strong>Bachelor's degree in Big Data &amp; Data Analytics</strong>.
-          </p>
-          <p>
-            My dual expertise in <strong>cybersecurity</strong> and
-            <strong>big data</strong> gives me a unique edge — I understand both
-            how systems are attacked and how to analyze massive datasets
-            to detect threats before they escalate.
-          </p>
-          <p>
-            Certified <strong class="highlight">CompTIA Security+ (SY0-701)</strong> and
-            <strong class="highlight">CNAM Cybersecurity Analyst</strong>
-            (top of class). Passionate about CTFs, bug bounty and ethical hacking.
-          </p>
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <i data-lucide="shield-check"></i>
-              <span>Pentesting & Forensics</span>
-            </div>
-            <div class="highlight-item">
-              <i data-lucide="database"></i>
-              <span>Big Data & ML</span>
-            </div>
-            <div class="highlight-item">
-              <i data-lucide="trophy"></i>
-              <span>CTF Competitor</span>
-            </div>
-            <div class="highlight-item">
-              <i data-lucide="graduation-cap"></i>
-              <span>UTT Engineering</span>
+      <div class="about-content reveal">
+        <div class="about-top">
+          <div class="about-text-full">
+            <p>
+              I am an <strong>engineering student</strong> at the
+              <strong>University of Technology of Troyes</strong> (UTT),
+              in the Networks &amp; Telecommunications track with a
+              Systems Security specialization. Holder of a
+              <strong>Bachelor's degree in Big Data &amp; Data Analytics</strong>.
+            </p>
+            <p>
+              My dual expertise in <strong>cybersecurity</strong> and
+              <strong>big data</strong> gives me a unique edge — I understand both
+              how systems are attacked and how to analyze massive datasets
+              to detect threats before they escalate.
+            </p>
+            <p>
+              Certified <strong class="highlight">CompTIA Security+ (SY0-701)</strong> and
+              <strong class="highlight">CNAM Cybersecurity Analyst</strong>
+              (top of class). Passionate about CTFs, bug bounty and ethical hacking.
+            </p>
+          </div>
+          <div class="about-terminal">
+            <div class="terminal">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <span class="terminal-title">jouini@kali:~</span>
+              </div>
+              <div class="terminal-body">
+                <p><span class="prompt">$</span> whoami</p>
+                <p class="output">Mohamed Youssef Jouini</p>
+                <p><span class="prompt">$</span> cat /etc/role</p>
+                <p class="output">Security Engineering Student @ UTT</p>
+                <p><span class="prompt">$</span> cat /etc/location</p>
+                <p class="output">Aube, Grand Est, France</p>
+                <p><span class="prompt">$</span> ls ~/skills/</p>
+                <p class="output">pentesting/ forensics/ SIEM/ python/ ML/ big-data/</p>
+                <p><span class="prompt">$</span> ls ~/certs/</p>
+                <p class="output highlight">Security+  CNAM-CyberAnalyst  CodingDojo-Cyber</p>
+                <p><span class="prompt">$</span> cat ~/ctf-best</p>
+                <p class="output">AWS SANS BootUp CTF — 5272 pts</p>
+                <p><span class="prompt">$</span> <span class="terminal-cursor">_</span></p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="about-terminal">
-          <div class="terminal">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-              </div>
-              <span class="terminal-title">jouini@kali:~</span>
-            </div>
-            <div class="terminal-body">
-              <p><span class="prompt">$</span> whoami</p>
-              <p class="output">Mohamed Youssef Jouini</p>
-              <p><span class="prompt">$</span> cat /etc/role</p>
-              <p class="output">Security Engineering Student @ UTT</p>
-              <p><span class="prompt">$</span> cat /etc/location</p>
-              <p class="output">Aube, Grand Est, France</p>
-              <p><span class="prompt">$</span> ls ~/skills/</p>
-              <p class="output">pentesting/ forensics/ SIEM/ python/ ML/ big-data/</p>
-              <p><span class="prompt">$</span> ls ~/certs/</p>
-              <p class="output highlight">Security+  CNAM-CyberAnalyst  CodingDojo-Cyber</p>
-              <p><span class="prompt">$</span> cat ~/ctf-best</p>
-              <p class="output">AWS SANS BootUp CTF — 5272 pts</p>
-              <p><span class="prompt">$</span> <span class="terminal-cursor">_</span></p>
-            </div>
+        <div class="about-highlights-grid">
+          <div class="highlight-card">
+            <i data-lucide="shield-check"></i>
+            <h4>Pentesting & Forensics</h4>
+            <p>Penetration testing, forensic analysis and incident response</p>
+          </div>
+          <div class="highlight-card">
+            <i data-lucide="database"></i>
+            <h4>Big Data & ML</h4>
+            <p>Data pipelines, machine learning and visualization</p>
+          </div>
+          <div class="highlight-card">
+            <i data-lucide="trophy"></i>
+            <h4>CTF Competitor</h4>
+            <p>5272 pts SANS BootUp CTF, #111 CTF Orion Bellatrix</p>
+          </div>
+          <div class="highlight-card">
+            <i data-lucide="graduation-cap"></i>
+            <h4>UTT Engineering</h4>
+            <p>Networks & Telecom, Systems Security specialization</p>
           </div>
         </div>
       </div>
