@@ -1141,6 +1141,145 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
+   PREUVES & JUSTIFICATIFS
+   ============================================================ */
+.preuves-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.preuve-card {
+  display: block;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.preuve-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.preuve-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 212, 255, 0.06);
+  color: var(--text-primary);
+}
+
+.preuve-card:hover::before { opacity: 1; }
+
+.preuve-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 212, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.preuve-icon svg { width: 22px; height: 22px; color: var(--neon-blue); }
+
+.preuve-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.preuve-badge.certif {
+  background: rgba(123, 47, 247, 0.12);
+  border: 1px solid rgba(123, 47, 247, 0.25);
+  color: var(--neon-purple);
+}
+
+.preuve-badge.ctf {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  color: #ffd700;
+}
+
+.preuve-badge.stage {
+  background: rgba(0, 255, 200, 0.08);
+  border: 1px solid rgba(0, 255, 200, 0.2);
+  color: var(--neon-cyan);
+}
+
+.preuve-badge.notes {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: var(--neon-blue);
+}
+
+.preuve-badge.diplome {
+  background: rgba(255, 45, 117, 0.1);
+  border: 1px solid rgba(255, 45, 117, 0.2);
+  color: var(--neon-pink);
+}
+
+.preuve-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.preuve-issuer {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.preuve-detail {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.preuve-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--neon-blue);
+  transition: var(--transition);
+}
+
+.preuve-action svg { width: 14px; height: 14px; }
+
+.preuve-card:hover .preuve-action {
+  color: #fff;
+  gap: 10px;
+}
+
+/* ============================================================
    CONTACT
    ============================================================ */
 .contact-grid {
@@ -1539,6 +1678,7 @@ img { max-width: 100%; display: block; }
   .ctf-grid { grid-template-columns: 1fr; }
   .certs-grid { grid-template-columns: 1fr; }
   .education-grid { grid-template-columns: 1fr; }
+  .preuves-grid { grid-template-columns: 1fr; }
 
   .ctf-stats { flex-direction: row; }
 
