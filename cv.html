@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Mohamed Youssef Jouini</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #0a1628;
+      --accent: #0077b6;
+      --accent-light: #00a8e8;
+      --accent-bg: #e8f4fd;
+      --text: #1a1a2e;
+      --text-secondary: #4a4a6a;
+      --text-muted: #7a7a9a;
+      --border: #e0e4ec;
+      --bg-sidebar: #0a1628;
+      --bg-white: #ffffff;
+      --bg-light: #f7f8fb;
+    }
+
+    html { font-size: 11px; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg-white);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       PAGE LAYOUT — Two-column
+       ============================================================ */
+    .cv-page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 68mm 1fr;
+      background: var(--bg-white);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    /* ============================================================
+       LEFT SIDEBAR
+       ============================================================ */
+    .sidebar {
+      background: var(--bg-sidebar);
+      color: #ffffff;
+      padding: 28px 18px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Photo */
+    .photo-wrapper {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 4px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent-light);
+      box-shadow: 0 0 20px rgba(0, 168, 232, 0.25);
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sidebar-name {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+
+    .sidebar-title {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--accent-light);
+      font-weight: 500;
+      margin-top: -6px;
+    }
+
+    /* Sidebar sections */
+    .sb-section { }
+
+    .sb-heading {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-light);
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .sb-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.45;
+    }
+
+    .sb-item .icon {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      margin-top: 1px;
+      opacity: 0.6;
+    }
+
+    .sb-item a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+    }
+
+    .sb-item a:hover { color: var(--accent-light); }
+
+    /* Skills in sidebar */
+    .skill-group { margin-bottom: 10px; }
+
+    .skill-group-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 5px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .skill-tag {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.8);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .skill-tag.highlight {
+      background: rgba(0, 168, 232, 0.15);
+      border-color: rgba(0, 168, 232, 0.3);
+      color: var(--accent-light);
+    }
+
+    /* Languages */
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+      font-size: 0.8rem;
+    }
+
+    .lang-level {
+      font-size: 0.7rem;
+      color: var(--accent-light);
+      font-weight: 500;
+    }
+
+    .lang-bar-bg {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      margin-top: 2px;
+    }
+
+    .lang-bar-fill {
+      height: 100%;
+      background: var(--accent-light);
+      border-radius: 2px;
+    }
+
+    /* ============================================================
+       MAIN CONTENT (right side)
+       ============================================================ */
+    .main {
+      padding: 28px 26px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Section headings */
+    .section-heading {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-heading .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Entry block (experience, education) */
+    .entry { margin-bottom: 12px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .entry-role {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .entry-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .entry-company {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+
+    .entry-desc {
+      margin-top: 4px;
+      padding-left: 14px;
+    }
+
+    .entry-desc li {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+      line-height: 1.45;
+    }
+
+    .entry-techs {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .entry-tech {
+      background: var(--accent-bg);
+      color: var(--accent);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Certification entries */
+    .cert-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .cert-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cert-issuer {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .cert-date {
+      font-size: 0.73rem;
+      font-weight: 500;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .cert-detail {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Projects */
+    .project-entry { margin-bottom: 10px; }
+    .project-entry:last-child { margin-bottom: 0; }
+
+    .project-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .project-desc {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      line-height: 1.45;
+    }
+
+    /* CTF */
+    .ctf-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 5px;
+    }
+
+    .ctf-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .ctf-score {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .ctf-detail {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       PRINT STYLES
+       ============================================================ */
+    @media print {
+      html { font-size: 11px; }
+      body { background: white; }
+      .cv-page {
+        width: 100%;
+        min-height: auto;
+        box-shadow: none;
+        margin: 0;
+      }
+      .sidebar {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .skill-tag, .entry-tech, .lang-bar-fill, .section-heading, .photo-wrapper {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="cv-page">
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <!-- Photo -->
+    <div class="photo-wrapper">
+      <img src="assets/photo.jpg" alt="Mohamed Youssef Jouini" />
+    </div>
+    <div class="sidebar-name">Mohamed Youssef<br />Jouini</div>
+    <div class="sidebar-title">Cybersecurity & Data Engineering</div>
+
+    <!-- Contact -->
+    <div class="sb-section">
+      <div class="sb-heading">Contact</div>
+      <div class="sb-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <span>playerthemaker@gmail.com</span>
+      </div>
+      <div class="sb-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+33 7 46 49 62 10</span>
+      </div>
+      <div class="sb-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Aube, Grand Est, France</span>
+      </div>
+      <div class="sb-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://www.linkedin.com/in/mohamed-youssef-jouini-b05740269/">LinkedIn</a>
+      </div>
+      <div class="sb-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        <a href="https://github.com/MohamedYoussefjo">GitHub</a>
+      </div>
+      <div class="sb-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <a href="https://mohamedyoussefjo.github.io/portfolio/">Portfolio</a>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="sb-section">
+      <div class="sb-heading">Comp&eacute;tences</div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Programmation</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Python</span>
+          <span class="skill-tag">C/C++</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">Matlab</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Cybers&eacute;curit&eacute;</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Pentesting</span>
+          <span class="skill-tag highlight">Forensics</span>
+          <span class="skill-tag">SIEM</span>
+          <span class="skill-tag">Cryptographie</span>
+          <span class="skill-tag">Analyse malware</span>
+          <span class="skill-tag">Nmap</span>
+          <span class="skill-tag">Wireshark</span>
+          <span class="skill-tag">Burp Suite</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Big Data & ML</div>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Spark</span>
+          <span class="skill-tag highlight">Kafka</span>
+          <span class="skill-tag">Airflow</span>
+          <span class="skill-tag">Hadoop</span>
+          <span class="skill-tag">Elasticsearch</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Scikit-learn</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud & R&eacute;seau</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Active Directory</span>
+          <span class="skill-tag">GLPI</span>
+          <span class="skill-tag">MongoDB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="sb-section">
+      <div class="sb-heading">Langues</div>
+      <div class="lang-row">
+        <span>Fran&ccedil;ais</span>
+        <span class="lang-level">Courant</span>
+      </div>
+      <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:95%"></div></div>
+      <div class="lang-row" style="margin-top:8px">
+        <span>Anglais</span>
+        <span class="lang-level">Professionnel</span>
+      </div>
+      <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:80%"></div></div>
+      <div class="lang-row" style="margin-top:8px">
+        <span>Allemand</span>
+        <span class="lang-level">Interm&eacute;diaire</span>
+      </div>
+      <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:50%"></div></div>
+      <div class="lang-row" style="margin-top:8px">
+        <span>Arabe</span>
+        <span class="lang-level">Natif</span>
+      </div>
+      <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:100%"></div></div>
+    </div>
+
+    <!-- CTF -->
+    <div class="sb-section">
+      <div class="sb-heading">CTF & Challenges</div>
+      <div class="sb-item" style="flex-direction:column;gap:2px">
+        <strong style="color:var(--accent-light);font-size:0.78rem">SANS BootUp CTF</strong>
+        <span style="font-size:0.72rem">5 272 points — Mars 2026</span>
+      </div>
+      <div class="sb-item" style="flex-direction:column;gap:2px;margin-top:4px">
+        <strong style="color:var(--accent-light);font-size:0.78rem">CTF Orion Bellatrix</strong>
+        <span style="font-size:0.72rem">#111 — 3 380 points</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main">
+
+    <!-- PROFIL -->
+   <section>
+  <div class="section-heading"><span class="dot"></span> Profil</div>
+  <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.55;margin-top:4px">
+    &Eacute;tudiant ing&eacute;nieur &agrave; l'UTT en S&eacute;curit&eacute; des Syst&egrave;mes, titulaire d'une licence en Big Data et certifi&eacute; <strong style="color:var(--accent)">CompTIA Security+</strong> et <strong style="color:var(--accent)">CompTIA CySA+</strong>, ainsi que d&eacute;tenteur de la certification stackable <strong style="color:var(--accent)">CompTIA Security Analytics Professional (CSAP)</strong>. Exp&eacute;rience en data engineering et en cybers&eacute;curit&eacute; offensive, notamment en pentesting et en challenges CTF. Passionn&eacute;, comp&eacute;titif et en qu&ecirc;te permanente de progression, je cherche &agrave; repousser mes limites et &agrave; monter en comp&eacute;tences. Je me distingue par une approche polyvalente &agrave; l’intersection de l’intelligence artificielle, de la data et de la cybers&eacute;curit&eacute;, avec pour objectif de concevoir des solutions avanc&eacute;es de d&eacute;tection et d’analyse des menaces &agrave; grande &eacute;chelle.
+  </p>
+</section>
+
+    <!-- FORMATION -->
+    <section>
+      <div class="section-heading"><span class="dot"></span> Formation</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-role">Dipl&ocirc;me National d'Ing&eacute;nieur</span>
+          <span class="entry-date">Sept 2025 — Jan 2028</span>
+        </div>
+        <div class="entry-company">Universit&eacute; de Technologie de Troyes (UTT)</div>
+        <ul class="entry-desc">
+          <li>Branche R&eacute;seaux & T&eacute;l&eacute;communications — Fili&egrave;re S&eacute;curit&eacute; des Syst&egrave;mes</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-role">Licence en Big Data & Analyse de Donn&eacute;es</span>
+          <span class="entry-date">Oct 2022 — Juin 2025</span>
+        </div>
+        <div class="entry-company">&Eacute;cole Centrale Sup&eacute;rieure Priv&eacute;e d'Informatique et de T&eacute;l&eacute;communications</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-role">Baccalaur&eacute;at Math&eacute;matiques</span>
+          <span class="entry-date">2021 — 2022</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <div class="section-heading"><span class="dot"></span> Exp&eacute;rience Professionnelle</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-role">Stagiaire Data Engineering</span>
+          <span class="entry-date">F&eacute;v — Juin 2025</span>
+        </div>
+        <div class="entry-company">Orange Tunisie — Direction R&eacute;seaux & Services (PFE)</div>
+        <ul class="entry-desc">
+          <li>Conception et mise en place d'une solution Big Data automatis&eacute;e pour le traitement et l'optimisation des KPI r&eacute;seau et services</li>
+          <li>Ingestion temps r&eacute;el via Apache Kafka, traitement et enrichissement avec Apache Spark</li>
+          <li>Orchestration des workflows via Apache Airflow, stockage et indexation dans Elasticsearch</li>
+          <li>Cr&eacute;ation de tableaux de bord dynamiques pour la visualisation des KPI</li>
+        </ul>
+        <div class="entry-techs">
+          <span class="entry-tech">Python</span>
+          <span class="entry-tech">Kafka</span>
+          <span class="entry-tech">Spark</span>
+          <span class="entry-tech">Airflow</span>
+          <span class="entry-tech">Elasticsearch</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-role">Stagiaire R&eacute;seau & Infrastructure</span>
+          <span class="entry-date">Ao&ucirc;t 2024</span>
+        </div>
+        <div class="entry-company">REDIX Digital Solutions</div>
+        <ul class="entry-desc">
+          <li>Configuration et maintenance de syst&egrave;mes r&eacute;seau (Active Directory, GLPI)</li>
+          <li>R&eacute;solution de probl&egrave;mes techniques et d&eacute;pannage</li>
+          <li>Assistance dans la gestion des serveurs et protocoles de s&eacute;curit&eacute;</li>
+        </ul>
+        <div class="entry-techs">
+          <span class="entry-tech">Active Directory</span>
+          <span class="entry-tech">GLPI</span>
+          <span class="entry-tech">R&eacute;seau</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-role">Stagiaire Data Analyst</span>
+          <span class="entry-date">Juil — Ao&ucirc;t 2024</span>
+        </div>
+        <div class="entry-company">Orange Tunisie — Direction Marketing</div>
+        <ul class="entry-desc">
+          <li>Pr&eacute;traitement et nettoyage de donn&eacute;es t&eacute;l&eacute;com</li>
+          <li>Analyse exploratoire et pr&eacute;diction de comportement client</li>
+          <li>Clustering de clients bas&eacute; sur la fid&eacute;lit&eacute;</li>
+        </ul>
+        <div class="entry-techs">
+          <span class="entry-tech">Python</span>
+          <span class="entry-tech">Pandas</span>
+          <span class="entry-tech">Scikit-learn</span>
+          <span class="entry-tech">Clustering</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section>
+  <div class="section-heading"><span class="dot"></span> Certifications</div>
+
+  <div class="cert-entry">
+    <div>
+      <div class="cert-name">CompTIA CySA+ (CS0-003)</div>
+      <div class="cert-issuer">CompTIA — Code : 69ac110beb0641cfad6dac18ea54adc5</div>
+    </div>
+    <span class="cert-date">Avril 2026</span>
+  </div>
+
+
+
+
+   <div class="cert-entry">
+    <div>
+      <div class="cert-name">CompTIA Security Analytics Professional (CSAP)</div>
+      <div class="cert-issuer">CompTIA — Stackable Certification (Security+ + CySA+)</div>
+    </div>
+    <span class="cert-date">Avril 2026</span>
+  </div>
+
+
+  
+  <div class="cert-entry">
+    <div>
+      <div class="cert-name">CompTIA Security+ (SY0-701)</div>
+      <div class="cert-issuer">CompTIA — Code : 5S4JTD9Y8JF1YWHJ</div>
+    </div>
+    <span class="cert-date">Sept 2025</span>
+  </div>
+ 
+
+  <div class="cert-entry">
+    <div>
+      <div class="cert-name">Analyste en Cybersécurité</div>
+      <div class="cert-issuer">CNAM Paris — Major de promotion (18.05, 17.7, 16.47, 16.21/20)</div>
+    </div>
+    <span class="cert-date">Oct 2025</span>
+  </div>
+
+  <div class="cert-entry">
+    <div>
+      <div class="cert-name">American Certification in Cybersecurity</div>
+      <div class="cert-issuer">Coding Dojo Africa — Pentesting, Forensics, SIEM, Ethical Hacking</div>
+    </div>
+    <span class="cert-date">Août 2024</span>
+  </div>
+
+  <div class="cert-entry">
+    <div>
+      <div class="cert-name">Sustainability, Work Ethics & Gender Equity</div>
+      <div class="cert-issuer">Honoris Online Academy</div>
+    </div>
+    <span class="cert-date">Août 2024</span>
+  </div>
+
+  <div class="cert-entry">
+    <div>
+      <div class="cert-name">Personal Skills — Creativity & Critical Thinking</div>
+      <div class="cert-issuer">Honoris Online Academy</div>
+    </div>
+    <span class="cert-date">Mai 2024</span>
+  </div>
+
+</section>
+
+    <!-- PROJETS -->
+    <section>
+      <div class="section-heading"><span class="dot"></span> Projets</div>
+
+      <div class="project-entry">
+        <div class="project-name">Solution Big Data pour KPI R&eacute;seau — Orange Tunisie</div>
+        <div class="project-desc">Pipeline automatis&eacute; d'ingestion (Kafka), traitement (Spark), orchestration (Airflow) et visualisation des KPI r&eacute;seau en temps r&eacute;el. Stockage index&eacute; dans Elasticsearch.</div>
+        <div class="entry-techs" style="margin-top:3px">
+          <span class="entry-tech">Python</span>
+          <span class="entry-tech">Kafka</span>
+          <span class="entry-tech">Spark</span>
+          <span class="entry-tech">Airflow</span>
+          <span class="entry-tech">Elasticsearch</span>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-name">Pr&eacute;diction de Prix Immobilier en Tunisie</div>
+        <div class="project-desc">Application de pr&eacute;diction des prix d'appartements et maisons avec web scraping depuis des sites tunisiens, nettoyage de donn&eacute;es et entra&icirc;nement de mod&egrave;les ML.</div>
+        <div class="entry-techs" style="margin-top:3px">
+          <span class="entry-tech">Python</span>
+          <span class="entry-tech">BeautifulSoup</span>
+          <span class="entry-tech">Pandas</span>
+          <span class="entry-tech">Scikit-learn</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
