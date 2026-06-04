@@ -394,6 +394,43 @@
           </div>
         </div>
 
+        <!-- Projet sécurité SSH -->
+        <div class="project-card">
+          <div class="project-card-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/MohamedYoussefjo/projetsec" target="_blank" rel="noopener" class="project-link-icon" title="Voir sur GitHub">
+                <i data-lucide="github"></i>
+              </a>
+              <a href="https://github.com/MohamedYoussefjo/projetsec" target="_blank" rel="noopener" class="project-link-icon" title="Lien externe">
+                <i data-lucide="external-link"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Analyse & pr&eacute;vention des attaques brute-force SSH</h3>
+          <p class="project-description">
+            Plateforme conteneuris&eacute;e d'analyse et de pr&eacute;vention des attaques par
+            brute-force sur un serveur SSH durci (MFA Google Authenticator, cl&eacute;s publiques,
+            PAM). Parser Python qui tail <code>auth.log</code> et extrait les &eacute;v&eacute;nements
+            structur&eacute;s (IP, user, type d'&eacute;v&eacute;nement, outcome), envoy&eacute;s via Filebeat
+            vers Elasticsearch puis visualis&eacute;s en temps r&eacute;el dans Kibana. Architecture
+            multi-conteneurs : nginx, login-api (Flask), detector, SSH durci et ELK.
+          </p>
+          <div class="project-tech">
+            <span>Python</span>
+            <span>Docker Compose</span>
+            <span>SSH / PAM</span>
+            <span>Google Authenticator</span>
+            <span>Elasticsearch</span>
+            <span>Kibana</span>
+            <span>Filebeat</span>
+            <span>nginx</span>
+          </div>
+        </div>
+
         <div class="project-card coming-soon">
           <div class="project-header">
             <div class="project-icon">
