@@ -6,226 +6,263 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  @page { size: A4; margin: 9mm 11mm; }
+  @page { size: A4; margin: 12mm 14mm; }
+
+  :root {
+    --navy: #1a3a5c;
+    --gray: #555;
+    --line: #c8c8c8;
+  }
 
   body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #000;
+    font-family: "Calibri", "Carlito", Arial, Helvetica, sans-serif;
+    color: #1a1a1a;
     background: #fff;
-    font-size: 9pt;
-    line-height: 1.22;
+    font-size: 9.7pt;
+    line-height: 1.32;
   }
 
-  h1 {
-    font-size: 18pt;
-    font-weight: bold;
-    margin-bottom: 2pt;
+  /* ─── Header ─────────────────────────────────────────────── */
+  .header {
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 7pt;
+    margin-bottom: 9pt;
   }
-  .headline {
+  .name {
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5pt;
+    line-height: 1;
+  }
+  .role-title {
     font-size: 11pt;
-    color: #000;
-    margin-bottom: 4pt;
+    color: var(--navy);
+    margin-top: 3pt;
+    font-weight: 600;
+    letter-spacing: 0.2pt;
   }
-  .contact-line {
-    font-size: 9.5pt;
-    color: #000;
-    margin-bottom: 10pt;
+  .contact {
+    margin-top: 6pt;
+    font-size: 9pt;
+    color: var(--gray);
+    line-height: 1.5;
   }
-  .contact-line a { color: #000; text-decoration: underline; }
+  .contact a { color: var(--gray); text-decoration: none; }
+  .contact .sep { color: var(--line); margin: 0 5pt; }
 
+  /* ─── Section heading ────────────────────────────────────── */
   h2 {
-    font-size: 10pt;
-    font-weight: bold;
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: var(--navy);
     text-transform: uppercase;
-    border-bottom: 1px solid #000;
-    padding-bottom: 1pt;
-    margin: 5pt 0 2pt;
+    letter-spacing: 1pt;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2pt;
+    margin: 9pt 0 4pt;
   }
 
-  h3 {
-    font-size: 9.5pt;
-    font-weight: bold;
-    margin: 0;
-  }
+  /* ─── Profile paragraph ──────────────────────────────────── */
+  .profile { text-align: justify; }
 
-  .entry { margin-bottom: 4pt; }
-  ul { margin: 1pt 0 0 16pt; }
-  li { margin-bottom: 0; }
+  /* ─── Entry blocks (experience, formation, projects) ─────── */
+  .entry { margin-bottom: 6pt; }
   .entry-head {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: baseline;
+    margin-bottom: 1pt;
   }
-  .entry-sub {
-    font-size: 10pt;
+  .role {
+    font-size: 10.2pt;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .date {
+    font-size: 9pt;
+    color: var(--navy);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .org {
+    font-size: 9.7pt;
     font-style: italic;
-    margin-bottom: 2pt;
+    color: var(--gray);
+    margin-bottom: 1pt;
   }
-  ul { margin: 2pt 0 0 18pt; }
-  li { margin-bottom: 1pt; }
+  ul { margin: 1pt 0 0 14pt; }
+  li { margin-bottom: 0.5pt; }
 
-  p { margin-bottom: 3pt; }
+  /* ─── Skills block ───────────────────────────────────────── */
+  .skill-row {
+    margin-bottom: 2pt;
+    line-height: 1.4;
+  }
+  .skill-row b {
+    color: var(--navy);
+    display: inline-block;
+    min-width: 130pt;
+  }
 
-  .skills-block { margin-bottom: 3pt; }
-  .skills-block b { display: inline; }
+  /* ─── Certifications & projects list ─────────────────────── */
+  .cert-row {
+    margin-bottom: 2pt;
+    line-height: 1.35;
+  }
+  .cert-row b { color: #1a1a1a; }
+  .cert-row .meta { color: var(--gray); }
+
+  .proj-name {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 10pt;
+  }
+  .proj-desc {
+    text-align: justify;
+    margin-top: 1pt;
+  }
+
+  .ctf-row {
+    margin-bottom: 1pt;
+  }
+  .ctf-row b { color: var(--navy); }
 </style>
 </head>
 <body>
 
-<h1>Mohamed Youssef Jouini</h1>
-<div class="headline">Ingénieur Big Data, Cybersécurité &amp; Data Engineering</div>
-<div class="contact-line">
-  playerthemaker@gmail.com | +33 7 46 49 62 10 | Aube, Grand Est, France<br>
-  LinkedIn : linkedin.com/in/mohamed-youssef-jouini-b05740269 |
-  GitHub : github.com/MohamedYoussefjo |
-  Portfolio : mohamedyoussefjo.github.io/portfolio
+<!-- ═══════════════ HEADER ═══════════════ -->
+<div class="header">
+  <div class="name">Mohamed Youssef Jouini</div>
+  <div class="role-title">Ing&eacute;nieur Big Data, Data Engineering &amp; Cybers&eacute;curit&eacute;</div>
+  <div class="contact">
+    playerthemaker@gmail.com<span class="sep">|</span>
+    +33 7 46 49 62 10<span class="sep">|</span>
+    Aube, Grand Est, France<br>
+    linkedin.com/in/mohamed-youssef-jouini-b05740269<span class="sep">|</span>
+    github.com/MohamedYoussefjo<span class="sep">|</span>
+    mohamedyoussefjo.github.io/portfolio
+  </div>
 </div>
 
+<!-- ═══════════════ PROFIL ═══════════════ -->
 <h2>Profil</h2>
-<p>
-Étudiant ingénieur à l'Université de Technologie de Troyes (UTT) en branche Réseaux &amp; Télécommunications,
-filière Sécurité des Systèmes. Titulaire d'une licence en Big Data &amp; Analyse de Données. Certifié
-CompTIA Security+ et CompTIA CySA+, ainsi que CompTIA Security Analytics Professional (CSAP).
-Expérience en data engineering (Apache Kafka, Apache Spark, Apache Airflow, Elasticsearch) et en
-cybersécurité offensive (pentesting, SIEM, CTF). Approche polyvalente à l'intersection de la data, de
-la cybersécurité et de l'intelligence artificielle, avec un objectif clair : concevoir des solutions
-automatisées de détection et d'analyse des menaces à grande échelle.
+<p class="profile">
+&Eacute;tudiant ing&eacute;nieur &agrave; l'Universit&eacute; de Technologie de Troyes (UTT), branche R&eacute;seaux &amp; T&eacute;l&eacute;communications, fili&egrave;re S&eacute;curit&eacute; des Syst&egrave;mes. Titulaire d'une licence en Big Data &amp; Analyse de Donn&eacute;es. Certifi&eacute; CompTIA Security+, CompTIA CySA+ et CompTIA Security Analytics Professional (CSAP). Exp&eacute;rience en data engineering (Apache Kafka, Apache Spark, Apache Airflow, Elasticsearch) et en cybers&eacute;curit&eacute; offensive (pentesting, SIEM, CTF). Approche polyvalente &agrave; l'intersection de la data, de l'IA et de la cybers&eacute;curit&eacute;, avec un objectif clair&nbsp;: concevoir des solutions automatis&eacute;es de d&eacute;tection et d'analyse des menaces &agrave; grande &eacute;chelle.
 </p>
 
-<h2>Compétences</h2>
-<div class="skills-block"><b>Programmation :</b> Python, C/C++, Java, SQL, Bash, Shell, MATLAB</div>
-<div class="skills-block"><b>Big Data &amp; Data Engineering :</b> Apache Kafka, Apache Spark, Apache Airflow, Hadoop, Elasticsearch, Logstash, Kibana, ETL, Pandas, NumPy, Scikit-learn</div>
-<div class="skills-block"><b>Cybersécurité :</b> Pentesting, SIEM, EDR, Forensics, Threat Hunting, Patch Management, OpenVAS, Nessus, Nmap, Wireshark, Burp Suite, OWASP Top 10, CVSS, Cryptographie</div>
-<div class="skills-block"><b>Cloud, Réseau &amp; Systèmes :</b> AWS, Active Directory, Windows Server, Linux, GLPI, MongoDB, PostgreSQL, SQL Server, Redis</div>
-<div class="skills-block"><b>DevOps &amp; Outils :</b> Docker, Docker Compose, Git, GitLab, GitHub, CI/CD, Jira, Confluence, Agile, Scrum</div>
-<div class="skills-block"><b>Langues :</b> Français B2, Anglais B2, Allemand A2-B1, Arabe natif</div>
-
-<h2>Expérience Professionnelle</h2>
+<!-- ═══════════════ EXPERIENCE ═══════════════ -->
+<h2>Exp&eacute;rience Professionnelle</h2>
 
 <div class="entry">
   <div class="entry-head">
-    <h3>Stagiaire Data Engineering — Projet de Fin d'Études</h3>
-    <span>Février 2025 – Juin 2025</span>
+    <span class="role">Stagiaire Data Engineering — Projet de Fin d'&Eacute;tudes</span>
+    <span class="date">F&eacute;v 2025 – Juin 2025</span>
   </div>
-  <div class="entry-sub">Orange Tunisie, Direction Réseaux &amp; Services</div>
+  <div class="org">Orange Tunisie, Direction R&eacute;seaux &amp; Services</div>
   <ul>
-    <li>Conception et industrialisation d'une solution Big Data automatisée pour le traitement et l'optimisation des KPI réseau et services.</li>
-    <li>Mise en place du pipeline d'ingestion temps réel avec Apache Kafka, traitement et enrichissement des flux avec Apache Spark.</li>
-    <li>Orchestration des workflows ETL via Apache Airflow ; stockage et indexation des données dans Elasticsearch.</li>
-    <li>Création de tableaux de bord dynamiques sur Kibana pour le suivi temps réel des KPI réseau.</li>
-    <li>Stack utilisée : Python, Apache Kafka, Apache Spark, Apache Airflow, Elasticsearch, Kibana, Docker, Bash.</li>
+    <li>Conception et industrialisation d'une solution Big Data automatis&eacute;e pour le traitement et l'optimisation des KPI r&eacute;seau et services.</li>
+    <li>Pipeline d'ingestion temps r&eacute;el avec Apache Kafka, traitement et enrichissement des flux avec Apache Spark.</li>
+    <li>Orchestration des workflows ETL via Apache Airflow ; stockage et indexation des donn&eacute;es dans Elasticsearch.</li>
+    <li>Cr&eacute;ation de tableaux de bord dynamiques sur Kibana pour le suivi en temps r&eacute;el des KPI r&eacute;seau.</li>
+    <li>Stack : Python, Apache Kafka, Apache Spark, Apache Airflow, Elasticsearch, Kibana, Docker, Bash.</li>
   </ul>
 </div>
 
 <div class="entry">
   <div class="entry-head">
-    <h3>Stagiaire Réseau &amp; Infrastructure</h3>
-    <span>Août 2024</span>
+    <span class="role">Stagiaire R&eacute;seau &amp; Infrastructure</span>
+    <span class="date">Ao&ucirc;t 2024</span>
   </div>
-  <div class="entry-sub">REDIX Digital Solutions</div>
+  <div class="org">REDIX Digital Solutions</div>
   <ul>
-    <li>Configuration et maintenance de systèmes réseau (Active Directory, GLPI, Windows Server).</li>
-    <li>Résolution de problèmes techniques, dépannage utilisateur et rédaction de procédures.</li>
-    <li>Assistance dans la gestion des serveurs et application des protocoles de sécurité.</li>
+    <li>Configuration et maintenance de syst&egrave;mes r&eacute;seau (Active Directory, GLPI, Windows Server).</li>
+    <li>R&eacute;solution de probl&egrave;mes techniques, d&eacute;pannage utilisateur et r&eacute;daction de proc&eacute;dures.</li>
+    <li>Assistance dans la gestion des serveurs et application des protocoles de s&eacute;curit&eacute;.</li>
   </ul>
 </div>
 
 <div class="entry">
   <div class="entry-head">
-    <h3>Stagiaire Data Analyst</h3>
-    <span>Juillet 2024 – Août 2024</span>
+    <span class="role">Stagiaire Data Analyst</span>
+    <span class="date">Juil 2024 – Ao&ucirc;t 2024</span>
   </div>
-  <div class="entry-sub">Orange Tunisie, Direction Marketing</div>
+  <div class="org">Orange Tunisie, Direction Marketing</div>
   <ul>
-    <li>Prétraitement et nettoyage de données télécom à grande échelle.</li>
-    <li>Analyse exploratoire et modélisation prédictive du comportement client (régression logistique, arbres de décision).</li>
-    <li>Clustering des clients selon la fidélité ; restitution des résultats aux équipes métier.</li>
-    <li>Stack utilisée : Python, Pandas, Scikit-learn, SQL.</li>
+    <li>Pr&eacute;traitement et nettoyage de donn&eacute;es t&eacute;l&eacute;com.</li>
+    <li>Analyse exploratoire et mod&eacute;lisation pr&eacute;dictive du comportement client.</li>
+    <li>Clustering des clients selon la fid&eacute;lit&eacute;. Stack : Python, Pandas, Scikit-learn, SQL.</li>
   </ul>
 </div>
 
+<!-- ═══════════════ FORMATION ═══════════════ -->
 <h2>Formation</h2>
 
 <div class="entry">
   <div class="entry-head">
-    <h3>Diplôme National d'Ingénieur</h3>
-    <span>Septembre 2025 – Janvier 2028</span>
+    <span class="role">Dipl&ocirc;me National d'Ing&eacute;nieur <span style="color:var(--gray);font-weight:500;font-style:italic">(en cours, 1<sup>re</sup> ann&eacute;e)</span></span>
+    <span class="date">Sept 2025 – Jan 2028</span>
   </div>
-  <div class="entry-sub">Université de Technologie de Troyes (UTT), France</div>
+  <div class="org">Universit&eacute; de Technologie de Troyes (UTT), France</div>
   <ul>
-    <li>Branche Réseaux &amp; Télécommunications, filière Sécurité des Systèmes.</li>
-    <li>Modules : protocoles réseau, systèmes distribués, virtualisation, cryptographie, gestion des risques.</li>
+    <li>Branche R&eacute;seaux &amp; T&eacute;l&eacute;communications, fili&egrave;re S&eacute;curit&eacute; des Syst&egrave;mes.</li>
   </ul>
 </div>
 
 <div class="entry">
   <div class="entry-head">
-    <h3>Licence en Big Data &amp; Analyse de Données</h3>
-    <span>Octobre 2022 – Juin 2025</span>
+    <span class="role">Licence en Big Data &amp; Analyse de Donn&eacute;es</span>
+    <span class="date">Oct 2022 – Juin 2025</span>
   </div>
-  <div class="entry-sub">École Centrale Supérieure Privée d'Informatique et de Télécommunications, Tunisie</div>
-  <ul>
-    <li>Statistiques, probabilités, régression linéaire et logistique, ACP, AFC, ACM.</li>
-    <li>Machine learning supervisé et non supervisé, traitement et visualisation de données.</li>
-    <li>Bases de données SQL et NoSQL (PostgreSQL, MongoDB), Big Data (Hadoop, Spark).</li>
-  </ul>
+  <div class="org">&Eacute;cole Centrale Sup&eacute;rieure Priv&eacute;e d'Informatique et de T&eacute;l&eacute;communications, Tunisie</div>
 </div>
 
 <div class="entry">
   <div class="entry-head">
-    <h3>Baccalauréat Mathématiques</h3>
-    <span>2021 – 2022</span>
+    <span class="role">Baccalaur&eacute;at Math&eacute;matiques</span>
+    <span class="date">2021 – 2022</span>
   </div>
 </div>
 
-<h2>Certifications</h2>
-<ul>
-  <li><b>CompTIA CySA+ (CS0-003)</b> — CompTIA, Avril 2026. Code : 69ac110beb0641cfad6dac18ea54adc5.</li>
-  <li><b>CompTIA Security Analytics Professional (CSAP)</b> — CompTIA, Avril 2026 (Stackable : Security+ + CySA+).</li>
-  <li><b>CompTIA Security+ (SY0-701)</b> — CompTIA, Septembre 2025. Code : 5S4JTD9Y8JF1YWHJ.</li>
-  <li><b>Analyste en Cybersécurité</b> — CNAM Paris, Mai 2025. Major de promotion (18.05, 17.7, 16.47, 16.21 / 20).</li>
-  <li><b>American Certification in Cybersecurity</b> — Coding Dojo Africa, Août 2024 (Pentesting, Forensics, SIEM, Ethical Hacking).</li>
-</ul>
-
+<!-- ═══════════════ PROJETS ═══════════════ -->
 <h2>Projets</h2>
 
 <div class="entry">
-  <h3>Solution Big Data pour KPI Réseau — Orange Tunisie</h3>
-  <p>
-  Pipeline ETL automatisé d'ingestion (Apache Kafka), traitement distribué (Apache Spark),
-  orchestration (Apache Airflow), indexation Elasticsearch et visualisation Kibana, déployé pour
-  le suivi en temps réel des indicateurs clés de performance du réseau mobile.
-  Stack : Python, Apache Kafka, Apache Spark, Apache Airflow, Elasticsearch, Kibana, Docker.
-  </p>
+  <div class="proj-name">Solution Big Data pour KPI R&eacute;seau — Orange Tunisie</div>
+  <div class="proj-desc">Pipeline ETL automatis&eacute; d'ingestion (Apache Kafka), traitement distribu&eacute; (Apache Spark), orchestration (Apache Airflow), indexation Elasticsearch et visualisation Kibana, d&eacute;ploy&eacute; pour le suivi en temps r&eacute;el des indicateurs cl&eacute;s de performance du r&eacute;seau mobile. Stack : Python, Apache Kafka, Apache Spark, Apache Airflow, Elasticsearch, Kibana, Docker.</div>
 </div>
 
 <div class="entry">
-  <h3>Analyse &amp; prévention des attaques brute-force SSH</h3>
-  <p>
-  Plateforme conteneurisée d'analyse et de prévention des attaques par brute-force sur un serveur
-  SSH durci (MFA Google Authenticator, clés publiques, PAM). Parser Python qui tail auth.log,
-  extrait les événements structurés (IP, utilisateur, type d'événement, outcome), envoyés via
-  Filebeat vers Elasticsearch et visualisés en temps réel dans Kibana.
-  Stack : Python, Docker Compose, SSH, PAM, Google Authenticator, Elasticsearch, Kibana, Filebeat, nginx.
-  GitHub : github.com/MohamedYoussefjo/projetsec.
-  </p>
+  <div class="proj-name">Analyse &amp; pr&eacute;vention des attaques brute-force SSH</div>
+  <div class="proj-desc">Plateforme conteneuris&eacute;e d'analyse et de pr&eacute;vention des attaques par brute-force sur un serveur SSH durci (MFA Google Authenticator, cl&eacute;s publiques, PAM). Parser Python tailant auth.log et extrayant les &eacute;v&eacute;nements structur&eacute;s (IP, utilisateur, type d'&eacute;v&eacute;nement), exp&eacute;di&eacute;s via Filebeat vers Elasticsearch et restitu&eacute;s dans Kibana. Stack : Python, Docker Compose, SSH, PAM, Google Authenticator, Elasticsearch, Kibana, Filebeat, nginx. github.com/MohamedYoussefjo/projetsec</div>
 </div>
 
 <div class="entry">
-  <h3>Prédiction de Prix Immobilier en Tunisie</h3>
-  <p>
-  Application de prédiction des prix d'appartements et maisons : web scraping multi-sites,
-  nettoyage et feature engineering, modèles de machine learning (régression linéaire, Random
-  Forest, XGBoost) avec évaluation par cross-validation.
-  Stack : Python, BeautifulSoup, Pandas, Scikit-learn.
-  </p>
+  <div class="proj-name">Pr&eacute;diction de prix immobiliers en Tunisie</div>
+  <div class="proj-desc">Web scraping multi-sites, nettoyage et feature engineering, mod&egrave;les de machine learning (r&eacute;gression lin&eacute;aire, Random Forest, XGBoost) avec &eacute;valuation par cross-validation. Stack : Python, BeautifulSoup, Pandas, Scikit-learn.</div>
 </div>
 
+<!-- ═══════════════ COMPETENCES ═══════════════ -->
+<h2>Comp&eacute;tences Techniques</h2>
+<div class="skill-row"><b>Langages</b> Python, C/C++, Java, SQL, Bash, Shell, MATLAB</div>
+<div class="skill-row"><b>Big Data &amp; Data Eng.</b> Apache Kafka, Apache Spark, Apache Airflow, Hadoop, Elasticsearch, Logstash, Kibana, ETL, Pandas, NumPy, Scikit-learn</div>
+<div class="skill-row"><b>Cybers&eacute;curit&eacute;</b> Pentesting, SIEM, EDR, Forensics, Threat Hunting, Patch Management, OpenVAS, Nessus, Nmap, Wireshark, Burp Suite, OWASP Top 10, CVSS, Cryptographie</div>
+<div class="skill-row"><b>Cloud &amp; Syst&egrave;mes</b> AWS, Active Directory, Windows Server, Linux, GLPI, MongoDB, PostgreSQL, SQL Server, Redis</div>
+<div class="skill-row"><b>DevOps &amp; Outils</b> Docker, Docker Compose, Git, GitLab, GitHub, CI/CD, Jira, Confluence, Agile, Scrum</div>
+<div class="skill-row"><b>Langues</b> Fran&ccedil;ais B2, Anglais B2, Allemand A2-B1, Arabe natif</div>
+
+<!-- ═══════════════ CERTIFICATIONS ═══════════════ -->
+<h2>Certifications</h2>
+<div class="cert-row"><b>CompTIA CySA+ (CS0-003)</b> — CompTIA, Avril 2026<span class="meta"> · Code : 69ac110beb0641cfad6dac18ea54adc5</span></div>
+<div class="cert-row"><b>CompTIA Security Analytics Professional (CSAP)</b> — CompTIA, Avril 2026<span class="meta"> · Stackable : Security+ &amp; CySA+</span></div>
+<div class="cert-row"><b>CompTIA Security+ (SY0-701)</b> — CompTIA, Septembre 2025<span class="meta"> · Code : 5S4JTD9Y8JF1YWHJ</span></div>
+<div class="cert-row"><b>Analyste en Cybers&eacute;curit&eacute;</b> — CNAM Paris, Mai 2025<span class="meta"> · Major de promotion (18.05, 17.7, 16.47, 16.21 / 20)</span></div>
+<div class="cert-row"><b>American Certification in Cybersecurity</b> — Coding Dojo Africa, Ao&ucirc;t 2024</div>
+
+<!-- ═══════════════ CTF ═══════════════ -->
 <h2>CTF &amp; Challenges</h2>
-<ul>
-  <li>SANS BootUp CTF — 5 272 points (Mars 2026).</li>
-  <li>CTF Orion Bellatrix — Rang #111, 3 380 points.</li>
-</ul>
+<div class="ctf-row"><b>SANS BootUp CTF</b> — 5 272 points (Mars 2026)</div>
+<div class="ctf-row"><b>CTF Orion Bellatrix</b> — Rang #111, 3 380 points</div>
 
 </body>
 </html>
