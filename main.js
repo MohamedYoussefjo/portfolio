@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
      ================================================================ */
   var typingEl = document.getElementById('typing-text');
   var phrases = [
-    'Passionné de cybersécurité',
-    'Certifié CompTIA Security+',
-    'Compétiteur CTF — 5272 pts',
-    'Pentesting & Forensics',
-    'Big Data & Machine Learning',
+    'Polyvalent Data · IA · Cybersécurité',
+    'Big Data Engineer & ML Practitioner',
+    'Analyste Cybersécurité — CompTIA CySA+',
+    'Pentesting, Forensics & Threat Hunting',
+    'Pipelines Kafka / Spark / Airflow / ELK',
+    'Machine Learning au service de la sécurité',
+    'Compétiteur CTF — 5272 pts SANS BootUp',
     'Ingénieur Sécurité @ UTT',
-    'Hacker éthique & Bug Hunter',
-    'Analyste Cybersécurité CNAM',
   ];
   var phraseIndex = 0;
   var charIndex = 0;
